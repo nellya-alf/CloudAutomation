@@ -91,7 +91,6 @@ resource "azurerm_resource_group" "cluster_resource_group" {
 #   ssl_enforcement              = "Enabled"
 # }
 
-
 # Creates Log Analytics Workspace
 resource "azurerm_log_analytics_workspace" "cluster_worksace" {
     name                = "${var.region_prefix}-${var.cluster_name}-ws"
