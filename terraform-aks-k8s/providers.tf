@@ -15,7 +15,7 @@ provider "kubernetes"{
   password               = azurerm_kubernetes_cluster.kubernetes_cluster.kube_config.0.password
 } 
 
-
+# Run helm release
 provider "helm"{
  
 }
