@@ -1,6 +1,14 @@
+ terraform {
+      backend "remote" {
+        organization = var.organization
+        workspaces {
+          name = var.workspaces
+        }
+      }
+    }
+
 
 data "azurerm_client_config" "current" {}
-
 
 # Creates Azure Container Registery resource group
 resource "azurerm_resource_group" "cluster_acr_rg"{
