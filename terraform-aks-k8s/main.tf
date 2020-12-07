@@ -7,7 +7,6 @@
       }
     }
 
-
 data "azurerm_client_config" "current" {}
 
 # Creates Azure Container Registery resource group
