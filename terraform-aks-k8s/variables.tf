@@ -1,3 +1,20 @@
+variable "client_id" {
+  description = "Service prncipal ID"
+}
+
+variable "client_secret" {
+  description = "Service principal secret"
+
+}
+
+variable "tenant_id" {
+  description = "Azure Tenant ID"
+}
+
+variable "subscription_id" {
+  description = "Azure subscription ID"
+}
+
 variable "region_name" {
   default     = "eastus"
   description = "The location of the resource"
