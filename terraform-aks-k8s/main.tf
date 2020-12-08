@@ -1,27 +1,27 @@
- terraform {
-      backend "remote" {
-        organization = "nalfimov"
-        workspaces {
-          name = "CloudAutomation"
-        }
-      }
+terraform {
+  backend "remote" {
+    organization = "nalfimov"
+    workspaces {
+      name = "CloudAutomation"
     }
+  }
+}
 
 data "azurerm_client_config" "current" {}
 
 # Creates Azure Container Registery resource group
-resource "azurerm_resource_group" "cluster_acr_rg"{
+resource "azurerm_resource_group" "cluster_acr_rg" {
   name     = "${var.region_prefix}-clusteracr-rg"
   location = var.region_name
-  tags     = var.tags   
+  tags     = var.tags
 }
 
 # Creates a resource group for the AKS cluster
-resource "azurerm_resource_group" "cluster_resource_group" {    
-    
-    name     = "${var.region_prefix}-${var.cluster_name}-rg"
-    location = var.region_name
-    tags     = var.tags
+resource "azurerm_resource_group" "cluster_resource_group" {
+
+  name     = "${var.region_prefix}-${var.cluster_name}-rg"
+  location = var.region_name
+  tags     = var.tags
 }
 
 # Creates resource group for MySql server database
@@ -46,7 +46,7 @@ resource "azurerm_resource_group" "cluster_resource_group" {
 #   access_policy {
 #     tenant_id = data.azurerm_client_config.current.tenant_id
 #     object_id = data.azurerm_client_config.current.object_id
-  
+
 #     key_permissions = [
 #       "get",
 #       "create",
@@ -84,7 +84,7 @@ resource "azurerm_resource_group" "cluster_resource_group" {
 #     backup_retention_days = 7
 #     geo_redundant_backup  = "Disabled"
 #   }
-  
+
 #   administrator_login          = "mysqladmin"
 #   administrator_login_password = azurerm_key_vault_secret.db_admin_secret.value
 #   version                      = "5.7"
@@ -93,12 +93,12 @@ resource "azurerm_resource_group" "cluster_resource_group" {
 
 # Creates Log Analytics Workspace
 resource "azurerm_log_analytics_workspace" "cluster_worksace" {
-    name                = "${var.region_prefix}-${var.cluster_name}-ws"
-    location            = var.region_name
-    resource_group_name = azurerm_resource_group.cluster_resource_group.name
-    sku                 = "Standard"
-    retention_in_days   = "30"
-    tags                = var.tags
+  name                = "${var.region_prefix}-${var.cluster_name}-ws"
+  location            = var.region_name
+  resource_group_name = azurerm_resource_group.cluster_resource_group.name
+  sku                 = "Standard"
+  retention_in_days   = "30"
+  tags                = var.tags
 }
 
 

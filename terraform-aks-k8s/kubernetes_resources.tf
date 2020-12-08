@@ -1,7 +1,7 @@
 # Creates Namespace for ingress
 resource "kubernetes_namespace" "ingress_namespace" {
   metadata {
-    name = "ingress"   
+    name = "ingress"
   }
 
   depends_on = [azurerm_kubernetes_cluster.kubernetes_cluster]
@@ -10,9 +10,9 @@ resource "kubernetes_namespace" "ingress_namespace" {
 # Creates Namespace for web application
 resource "kubernetes_namespace" "ratings_namespace" {
   metadata {
-    name = "ratingsapp"   
+    name = "ratingsapp"
   }
-  
+
   depends_on = [azurerm_kubernetes_cluster.kubernetes_cluster]
 }
 

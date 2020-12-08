@@ -1,9 +1,9 @@
 # Creates Azure Container Registery
 resource "azurerm_container_registry" "registery" {
-   name                        = "${var.region_prefix}clusteracr"
-   resource_group_name         = azurerm_resource_group.cluster_acr_rg.name
-   location                    = azurerm_resource_group.cluster_acr_rg.location
-   sku                         = "Standard"    
+  name                = "${var.region_prefix}clusteracr"
+  resource_group_name = azurerm_resource_group.cluster_acr_rg.name
+  location            = azurerm_resource_group.cluster_acr_rg.location
+  sku                 = "Standard"
 }
 
 # Sets Role assignment for Azure Container Registry
