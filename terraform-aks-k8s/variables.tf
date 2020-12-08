@@ -1,13 +1,3 @@
-variable "organization" {
-  default = "nalfimov"
-  description = "The name of your Terraform Cloud organization."
-}
-
-variable "workspace"{
-  default = "CloudAutomation"
-  description = "The name of the Terraform Cloud workspace to store Terraform state files in."
-}
-
 variable "region_name" {
   default     = "eastus"
   description = "The location of the resource"

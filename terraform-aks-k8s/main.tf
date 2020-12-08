@@ -1,8 +1,8 @@
  terraform {
       backend "remote" {
-        organization = var.organization
+        organization = "nalfimov"
         workspaces {
-          name = var.workspaces
+          name = "CloudAutomation"
         }
       }
     }
