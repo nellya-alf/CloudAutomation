@@ -43,6 +43,7 @@ resource "helm_release" "ratings" {
     name  = "auth.database"
     value = "ratingsdb"
   }
+  depends_on = [azurerm_kubernetes_cluster.kubernetes_cluster]
 }
 
 # resource "helm_release" "ngnix" {
