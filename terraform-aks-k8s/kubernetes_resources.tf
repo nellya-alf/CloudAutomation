@@ -36,7 +36,7 @@ resource "helm_release" "ratings" {
 
   set {
     name  = "auth.password"
-    value = "1234"
+    value = "a124s"
   }
 
   set {
